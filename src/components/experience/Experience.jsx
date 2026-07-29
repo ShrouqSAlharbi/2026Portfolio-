@@ -96,7 +96,7 @@ export default function Experience() {
           </motion.div>
           <motion.div variants={fadeUp}>
             <ScreenshotFrame
-              src="/projects/booking-1.png"
+              src={`${import.meta.env.BASE_URL}projects/booking-1.png`}
               alt="Quick Booking admin dashboard with hall and meeting stats"
             />
           </motion.div>

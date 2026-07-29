@@ -2,10 +2,12 @@ import { Lightbulb, ExternalLink } from 'lucide-react'
 import { taibahMapProject } from '../../data/projects.js'
 import ScreenshotFrame from './ScreenshotFrame.jsx'
 
+const base = import.meta.env.BASE_URL
+
 const screenshots = [
-  { src: '/projects/taibahmap-1.png', alt: 'Building detail panel showing floors and description' },
-  { src: '/projects/taibahmap-2.png', alt: 'Campus overview with a route drawn between two points' },
-  { src: '/projects/taibahmap-3.png', alt: 'Search highlighting a matched building on the map' },
+  { src: `${base}projects/taibahmap-1.png`, alt: 'Building detail panel showing floors and description' },
+  { src: `${base}projects/taibahmap-2.png`, alt: 'Campus overview with a route drawn between two points' },
+  { src: `${base}projects/taibahmap-3.png`, alt: 'Search highlighting a matched building on the map' },
 ]
 
 function Block({ title, children }) {

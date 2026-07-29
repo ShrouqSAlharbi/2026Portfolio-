@@ -3,7 +3,7 @@ import { bookingProject } from '../../data/projects.js'
 import ScreenshotFrame from './ScreenshotFrame.jsx'
 
 const screenshots = [
-  { src: '/projects/booking-1.png', alt: 'Admin dashboard with hall and meeting stats' },
+  { src: `${import.meta.env.BASE_URL}projects/booking-1.png`, alt: 'Admin dashboard with hall and meeting stats' },
 ]
 
 function Block({ title, children }) {
