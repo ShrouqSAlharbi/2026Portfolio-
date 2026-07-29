@@ -1,17 +1,15 @@
 // Single source of truth for all site copy. Edit freely — no component
-// changes needed to update text, links, or the resume file.
+// changes needed to update text or links.
 
 export const profile = {
   name: 'Shuruq',
   role: 'QA Game Tester',
-  previousRole: 'Web Developer Intern',
-  location: 'Add your city, country',
+  previousRole: 'Software Designer',
+  location: 'Riyadh & Al Madinah, Saudi Arabia',
   email: 'shuruqalharbi@outlook.com',
   phone: '+966583265442',
-  github: 'https://github.com/yourusername',
-  linkedin: 'https://linkedin.com/in/yourusername',
-  // Drop your resume PDF into /public/resume.pdf, then this link works as-is.
-  resumeUrl: '/resume.pdf',
+  github: 'https://github.com/ShrouqSAlharbi',
+  linkedin: 'https://linkedin.com/in/shuruq-alharbi-832a08263',
 }
 
 export const nav = [
@@ -33,7 +31,6 @@ export const hero = {
   actions: [
     { label: 'Explore Journey', href: '#journey', variant: 'primary' },
     { label: 'View Projects', href: '#projects', variant: 'secondary' },
-    { label: 'Download Resume', href: profile.resumeUrl, variant: 'ghost', download: true },
   ],
 }
 
@@ -54,13 +51,22 @@ export const journey = {
 export const experience = {
   kicker: 'Experience',
   title: 'Two roles, one obsession with quality.',
+  internship: {
+    company: 'Ministry of National Guard Health Affairs',
+    role: 'Information System Intern',
+    location: 'Al Madinah',
+    duration: 'Jun 2022 – Aug 2022',
+    summary:
+      'A three-month internship with the Information Systems department, getting hands-on exposure to internal systems, data handling, and IT support workflows inside a large healthcare organization — the first real look at how software holds up under everyday operational use.',
+  },
   quickStep: {
     company: 'Quick Step',
-    role: 'Web Developer Intern',
-    duration: '6 Months',
+    role: 'Software Designer',
+    location: 'Al Madinah',
+    duration: 'Dec 2023 – Jun 2024',
     project: 'Office Booking Management System',
     summary:
-      'Joined as a frontend-focused intern on an internal tool built to manage meeting rooms and desk bookings across the office. Worked directly with the development team from planning through delivery.',
+      'Joined Quick Step as a frontend-focused Software Designer, building an internal tool to manage meeting rooms and desk bookings across the office. Worked directly with the development team from planning through delivery.',
     responsibilities: [
       'Developed frontend features end-to-end using Vue.js',
       'Built fully responsive interfaces for desktop and mobile use',
@@ -74,12 +80,13 @@ export const experience = {
   transition: {
     kicker: 'The Turning Point',
     title: 'Building software taught me how it breaks.',
-    body: "Six months of shipping real features gave me something most testers don't start with: an instinct for how software is actually put together. I learned to read component trees, trace state changes, and predict where a rushed deadline or an edge case would leave a crack. When the opportunity to move into QA came up, it didn't feel like a departure from development — it felt like using that same knowledge from the other side of the screen.",
+    body: "Those months of shipping real features gave me something most testers don't start with: an instinct for how software is actually put together. I learned to read component trees, trace state changes, and predict where a rushed deadline or an edge case would leave a crack. When the opportunity to move into QA came up, it didn't feel like a departure from development — it felt like using that same knowledge from the other side of the screen.",
   },
   qa: {
     company: 'Mirai / Scopely',
-    role: 'QA Game Tester',
-    duration: 'Present',
+    role: 'Junior QA Tester',
+    location: 'Al Riyadh',
+    duration: 'Apr 2025 – Present',
     summary:
       'Test live and in-development mobile games to make sure every release meets a high bar for stability, playability, and polish before it reaches players. Work spans full test cycles, from first pass to final verification.',
     responsibilities: [
@@ -171,16 +178,10 @@ export const certifications = {
   title: 'Continuous learning, on the record.',
   items: [
     {
-      name: 'ISTQB Foundation Level (in progress)',
+      name: 'ISTQB Foundation Level',
       issuer: 'ISTQB',
-      date: 'Add date',
+      date: 'In Progress',
       note: 'Formal grounding in test design techniques and QA fundamentals.',
-    },
-    {
-      name: 'Add your certification',
-      issuer: 'Add issuer',
-      date: 'Add date',
-      note: 'Add a short note about what it covers.',
     },
   ],
 }

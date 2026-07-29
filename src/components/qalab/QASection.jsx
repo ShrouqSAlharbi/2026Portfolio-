@@ -55,7 +55,7 @@ export default function QASection() {
   const ActiveChallenge = challengeComponents[step]
 
   return (
-    <section id="qa-lab" className="relative px-4 py-28 sm:px-6 sm:py-36">
+    <section id="qa-lab" className="relative px-4 py-20 sm:px-6 sm:py-28">
       <GlowBackground
         orbs={[{ color: 'cyan', top: '5%', left: '-8%', size: 420, opacity: 0.13 }]}
       />

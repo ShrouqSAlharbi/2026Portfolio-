@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Mail, Phone, Download, ArrowUpRight } from 'lucide-react'
+import { Mail, Phone, ArrowUpRight, MapPin } from 'lucide-react'
 import { contact, profile } from '../data/content.js'
 import { fadeUp, viewportOnce } from '../lib/motion.js'
 import SectionHeading from './ui/SectionHeading.jsx'
@@ -32,7 +32,6 @@ const links = [
   { label: 'Phone', value: profile.phone, href: `tel:${profile.phone.replace(/\s+/g, '')}`, Icon: Phone },
   { label: 'GitHub', value: profile.github.replace('https://', ''), href: profile.github, Icon: GithubIcon },
   { label: 'LinkedIn', value: profile.linkedin.replace('https://', ''), href: profile.linkedin, Icon: LinkedinIcon },
-  { label: 'Resume', value: 'Download PDF', href: profile.resumeUrl, Icon: Download, download: true },
 ]
 
 export default function ContactTerminal() {
@@ -42,7 +41,7 @@ export default function ContactTerminal() {
   const doneTyping = typed.length === commandLine.length
 
   return (
-    <section id="contact" className="relative px-4 py-28 sm:px-6 sm:py-36">
+    <section id="contact" className="relative px-4 py-20 sm:px-6 sm:py-28">
       <GlowBackground
         orbs={[{ color: 'electric', top: '10%', left: '10%', size: 420, opacity: 0.14 }]}
       />
@@ -54,9 +53,19 @@ export default function ContactTerminal() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="mb-10 text-ink-dim"
+          className="mb-3 text-ink-dim"
         >
           {contact.body}
+        </motion.p>
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          className="mb-10 flex items-center justify-center gap-1.5 font-mono text-xs text-ink-faint"
+        >
+          <MapPin size={12} />
+          {profile.location}
         </motion.p>
       </div>
 

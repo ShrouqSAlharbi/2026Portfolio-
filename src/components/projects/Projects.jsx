@@ -1,34 +1,33 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FolderOpen, LayoutGrid, ShieldCheck } from 'lucide-react'
+import { FolderOpen, LayoutGrid, Map } from 'lucide-react'
 import { fadeUp, staggerContainer, viewportOnce } from '../../lib/motion.js'
 import SectionHeading from '../ui/SectionHeading.jsx'
 import GlassCard from '../ui/GlassCard.jsx'
 import GlowBackground from '../ui/GlowBackground.jsx'
 import MissionFile from './MissionFile.jsx'
 import ProjectBookingSystem from './ProjectBookingSystem.jsx'
-import QAShowcase from './QAShowcase.jsx'
-import { bookingProject } from '../../data/projects.js'
-import { qaShowcaseMeta } from '../../data/qaArtifacts.js'
+import ProjectTaibahMap from './ProjectTaibahMap.jsx'
+import { bookingProject, taibahMapProject } from '../../data/projects.js'
 
 const files = [
   {
     code: bookingProject.code,
     title: bookingProject.title,
     role: bookingProject.role,
-    teaser: 'A Vue.js booking platform built for real office use — calendars, conflict handling, responsive from day one.',
+    teaser: 'A dashboard for managing hall and meeting room bookings across beneficiaries, supervisors, and admins.',
     tags: bookingProject.stack.slice(0, 4),
     icon: LayoutGrid,
     Content: ProjectBookingSystem,
   },
   {
-    code: qaShowcaseMeta.code,
-    title: qaShowcaseMeta.title,
-    role: qaShowcaseMeta.role,
-    teaser: 'Real QA documentation standards: test cases, bug reports, checklists, API/SQL validation, and a severity matrix.',
-    tags: ['Test Cases', 'Bug Reports', 'API Testing', 'SQL'],
-    icon: ShieldCheck,
-    Content: QAShowcase,
+    code: taibahMapProject.code,
+    title: taibahMapProject.title,
+    role: taibahMapProject.role,
+    teaser: 'An interactive, filterable campus map for Taibah University — built with Leaflet and real GIS data.',
+    tags: taibahMapProject.stack.slice(0, 4),
+    icon: Map,
+    Content: ProjectTaibahMap,
   },
 ]
 
@@ -37,7 +36,7 @@ export default function Projects() {
   const active = files.find((f) => f.code === openFile)
 
   return (
-    <section id="projects" className="relative px-4 py-28 sm:px-6 sm:py-36">
+    <section id="projects" className="relative px-4 py-20 sm:px-6 sm:py-28">
       <GlowBackground
         orbs={[{ color: 'electric', bottom: '5%', left: '-8%', size: 420, opacity: 0.13 }]}
       />
@@ -51,7 +50,7 @@ export default function Projects() {
         initial="hidden"
         whileInView="show"
         viewport={viewportOnce}
-        className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2"
+        className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2"
       >
         {files.map((file) => (
           <motion.button

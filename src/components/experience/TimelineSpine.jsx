@@ -41,7 +41,7 @@ export default function TimelineSpine({ containerRef }) {
   }, [containerRef, reducedMotion])
 
   return (
-    <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-white/10 lg:block">
+    <div className="pointer-events-none absolute left-1/2 top-0 -z-10 hidden h-full w-px -translate-x-1/2 bg-white/10 lg:block">
       <div
         ref={lineRef}
         className="h-full w-full origin-top bg-gradient-to-b from-electric via-cyan to-violet"

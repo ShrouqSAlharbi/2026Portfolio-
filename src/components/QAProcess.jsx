@@ -9,7 +9,7 @@ const icons = [Search, Brain, ListTodo, Play, FileText, CircleCheckBig, Trending
 
 export default function QAProcess() {
   return (
-    <section id="process" className="relative px-4 py-28 sm:px-6 sm:py-36">
+    <section id="process" className="relative px-4 py-20 sm:px-6 sm:py-28">
       <GlowBackground
         orbs={[{ color: 'cyan', top: '10%', right: '-10%', size: 380, opacity: 0.12 }]}
       />

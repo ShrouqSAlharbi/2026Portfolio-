@@ -1,6 +1,5 @@
 import { Suspense, lazy } from 'react'
 import { motion } from 'framer-motion'
-import { Download } from 'lucide-react'
 import { hero } from '../../data/content.js'
 import Button from '../ui/Button.jsx'
 import ScrollIndicator from './ScrollIndicator.jsx'
@@ -74,14 +73,8 @@ export default function Hero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
         >
           {hero.actions.map((action) => (
-            <Button
-              key={action.label}
-              href={action.href}
-              variant={action.variant}
-              download={action.download}
-            >
+            <Button key={action.label} href={action.href} variant={action.variant}>
               {action.label}
-              {action.download && <Download size={16} />}
             </Button>
           ))}
         </motion.div>

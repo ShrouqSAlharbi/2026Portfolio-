@@ -74,7 +74,7 @@ export default function Skills() {
   const current = skills.groups.find((g) => g.id === activeGroup)
 
   return (
-    <section id="skills" className="relative px-4 py-28 sm:px-6 sm:py-36">
+    <section id="skills" className="relative px-4 py-20 sm:px-6 sm:py-28">
       <GlowBackground
         orbs={[{ color: 'violet', top: '0%', left: '50%', size: 460, opacity: 0.12 }]}
       />

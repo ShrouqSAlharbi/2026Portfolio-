@@ -1,16 +1,16 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
-import { CircleCheckBig, Code, Search, ArrowDown, Gamepad2 } from 'lucide-react'
+import { CircleCheckBig, Code, Search, ArrowDown, Gamepad2, HeartPulse } from 'lucide-react'
 import { experience } from '../../data/content.js'
 import { fadeUp, staggerContainer, viewportOnce } from '../../lib/motion.js'
 import SectionHeading from '../ui/SectionHeading.jsx'
 import GlassCard from '../ui/GlassCard.jsx'
 import GlowBackground from '../ui/GlowBackground.jsx'
-import BrowserMockup from './BrowserMockup.jsx'
 import DashboardMockup from './DashboardMockup.jsx'
+import ScreenshotFrame from '../projects/ScreenshotFrame.jsx'
 import TimelineSpine from './TimelineSpine.jsx'
 
-function RoleMeta({ company, role, duration }) {
+function RoleMeta({ company, role, duration, location }) {
   return (
     <div className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-2">
       <span className="rounded-full bg-gradient-to-r from-electric to-cyan px-3 py-1 font-mono text-[11px] font-semibold text-void">
@@ -18,7 +18,7 @@ function RoleMeta({ company, role, duration }) {
       </span>
       <span className="font-display text-lg font-semibold text-ink sm:text-xl">{role}</span>
       <span className="ml-auto rounded-full border border-white/10 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-ink-faint">
-        {duration}
+        {location ? `${location} · ${duration}` : duration}
       </span>
     </div>
   )
@@ -26,17 +26,39 @@ function RoleMeta({ company, role, duration }) {
 
 export default function Experience() {
   const containerRef = useRef(null)
-  const { quickStep, transition, qa } = experience
+  const { internship, quickStep, transition, qa } = experience
 
   return (
-    <section id="experience" className="relative overflow-hidden px-4 py-28 sm:px-6 sm:py-36">
+    <section id="experience" className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28">
       <GlowBackground
         orbs={[{ color: 'cyan', top: '30%', right: '-10%', size: 420, opacity: 0.12 }]}
       />
       <SectionHeading kicker={experience.kicker} title={experience.title} />
 
-      <div ref={containerRef} className="relative mx-auto max-w-6xl space-y-24 sm:space-y-32">
+      <div ref={containerRef} className="relative isolate mx-auto max-w-6xl space-y-24 sm:space-y-32">
         <TimelineSpine containerRef={containerRef} />
+
+        {/* Prologue — Information System Intern */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          className="relative z-10 mx-auto max-w-2xl"
+        >
+          <GlassCard hover={false} className="p-6 sm:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/[0.04] text-violet-soft">
+                <HeartPulse size={20} />
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink-faint">
+                Where it started
+              </span>
+            </div>
+            <RoleMeta {...internship} />
+            <p className="text-sm leading-relaxed text-ink-dim sm:text-base">{internship.summary}</p>
+          </GlassCard>
+        </motion.div>
 
         {/* Scene 1 — Quick Step */}
         <motion.div
@@ -44,7 +66,7 @@ export default function Experience() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="relative grid items-center gap-8 lg:grid-cols-2 lg:gap-14"
+          className="relative z-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-14"
         >
           <motion.div variants={fadeUp}>
             <GlassCard hover={false} className="p-6 sm:p-8">
@@ -73,7 +95,10 @@ export default function Experience() {
             </GlassCard>
           </motion.div>
           <motion.div variants={fadeUp}>
-            <BrowserMockup />
+            <ScreenshotFrame
+              src="/projects/booking-1.png"
+              alt="Quick Booking admin dashboard with hall and meeting stats"
+            />
           </motion.div>
         </motion.div>
 
@@ -83,7 +108,7 @@ export default function Experience() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="relative mx-auto max-w-2xl text-center"
+          className="relative z-10 mx-auto max-w-2xl text-center"
         >
           <div className="mb-6 flex items-center justify-center gap-4 text-ink-faint">
             <span className="grid h-12 w-12 place-items-center rounded-full border border-electric/40 text-electric">
@@ -113,7 +138,7 @@ export default function Experience() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="relative grid items-center gap-8 lg:grid-cols-2 lg:gap-14"
+          className="relative z-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-14"
         >
           <motion.div variants={fadeUp} className="order-2 lg:order-1">
             <DashboardMockup />

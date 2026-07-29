@@ -7,7 +7,7 @@ import AnimatedCounter from './ui/AnimatedCounter.jsx'
 
 export default function Journey() {
   return (
-    <section id="journey" className="relative px-4 py-28 sm:px-6 sm:py-36">
+    <section id="journey" className="relative px-4 py-20 sm:px-6 sm:py-28">
       <GlowBackground
         orbs={[
           { color: 'electric', top: '10%', left: '-6%', size: 380, opacity: 0.14 },

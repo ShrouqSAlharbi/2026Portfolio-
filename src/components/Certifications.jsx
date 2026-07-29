@@ -4,10 +4,14 @@ import { certifications } from '../data/content.js'
 import { fadeUp, staggerContainer, viewportOnce } from '../lib/motion.js'
 import SectionHeading from './ui/SectionHeading.jsx'
 import GlassCard from './ui/GlassCard.jsx'
+import GlowBackground from './ui/GlowBackground.jsx'
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="relative px-4 py-28 sm:px-6 sm:py-36">
+    <section id="certifications" className="relative px-4 py-20 sm:px-6 sm:py-28">
+      <GlowBackground
+        orbs={[{ color: 'violet', bottom: '10%', right: '-8%', size: 380, opacity: 0.13 }]}
+      />
       <SectionHeading kicker={certifications.kicker} title={certifications.title} />
 
       <motion.div
