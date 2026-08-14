@@ -5,9 +5,9 @@ import ScreenshotFrame from './ScreenshotFrame.jsx'
 const base = import.meta.env.BASE_URL
 
 const screenshots = [
-  { src: `${base}projects/taibahmap-1.png`, alt: 'Building detail panel showing floors and description' },
-  { src: `${base}projects/taibahmap-2.png`, alt: 'Campus overview with a route drawn between two points' },
-  { src: `${base}projects/taibahmap-3.png`, alt: 'Search highlighting a matched building on the map' },
+  { src: `${base}projects/taibahmap-1.webp`, alt: 'Building detail panel showing floors and description', width: 1280, height: 552 },
+  { src: `${base}projects/taibahmap-2.webp`, alt: 'Campus overview with a route drawn between two points', width: 1280, height: 550 },
+  { src: `${base}projects/taibahmap-3.webp`, alt: 'Search highlighting a matched building on the map', width: 1280, height: 562 },
 ]
 
 function Block({ title, children }) {
@@ -52,7 +52,7 @@ export default function ProjectTaibahMap() {
       <Block title="Screens">
         <div className="space-y-4">
           {screenshots.map((shot) => (
-            <ScreenshotFrame key={shot.src} src={shot.src} alt={shot.alt} />
+            <ScreenshotFrame key={shot.src} src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} />
           ))}
         </div>
       </Block>

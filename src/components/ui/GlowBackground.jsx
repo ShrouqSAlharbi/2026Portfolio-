@@ -14,7 +14,7 @@ export default function GlowBackground({ variant = 'grid', orbs = [] }) {
       {orbs.map((orb, i) => (
         <div
           key={i}
-          className={`absolute rounded-full blur-[110px] animate-float-slow ${palette[orb.color] ?? palette.electric}`}
+          className={`absolute rounded-full blur-[50px] sm:blur-[110px] animate-float-slow ${palette[orb.color] ?? palette.electric}`}
           style={{
             width: orb.size ?? 380,
             height: orb.size ?? 380,

@@ -119,6 +119,14 @@
     border: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
   }
 
+  @media (max-width: 767px) {
+    .glass-panel {
+      background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+  }
+
   .text-gradient {
     background: linear-gradient(115deg, var(--color-electric-soft), var(--color-cyan) 45%, var(--color-violet-soft));
     -webkit-background-clip: text;

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { hero } from '../../data/content.js'
 import Button from '../ui/Button.jsx'
 import ScrollIndicator from './ScrollIndicator.jsx'
+import { useIsMobile, usePrefersReducedMotion } from '../../hooks/useMediaQuery.js'
 
 const ParticleField = lazy(() => import('./ParticleField.jsx'))
 
@@ -22,15 +23,26 @@ const headlineLine = {
 }
 
 export default function Hero() {
+  const isMobile = useIsMobile()
+  const reducedMotion = usePrefersReducedMotion()
+  const showParticles = !isMobile && !reducedMotion
+
   return (
     <section
       id="top"
       className="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-4 pt-28 pb-20 sm:px-6"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_60%_at_50%_20%,rgba(59,107,255,0.16),transparent)]" />
-      <Suspense fallback={<div className="absolute inset-0 -z-10 bg-void" />}>
-        <ParticleField />
-      </Suspense>
+      {showParticles ? (
+        <Suspense fallback={<div className="absolute inset-0 -z-10 bg-void" />}>
+          <ParticleField />
+        </Suspense>
+      ) : (
+        <div className="absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+          <div className="absolute left-1/2 top-[28%] h-72 w-72 -translate-x-1/2 rounded-full bg-electric/25 blur-[70px]" />
+          <div className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-cyan/15 blur-[70px]" />
+        </div>
+      )}
       <div className="pointer-events-none absolute inset-0 -z-[5] bg-gradient-to-b from-transparent via-transparent to-void" />
 
       <div className="relative mx-auto max-w-4xl text-center">

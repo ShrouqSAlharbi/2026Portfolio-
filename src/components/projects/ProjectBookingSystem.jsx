@@ -3,7 +3,7 @@ import { bookingProject } from '../../data/projects.js'
 import ScreenshotFrame from './ScreenshotFrame.jsx'
 
 const screenshots = [
-  { src: `${import.meta.env.BASE_URL}projects/booking-1.png`, alt: 'Admin dashboard with hall and meeting stats' },
+  { src: `${import.meta.env.BASE_URL}projects/booking-1.webp`, alt: 'Admin dashboard with hall and meeting stats', width: 1262, height: 547 },
 ]
 
 function Block({ title, children }) {
@@ -38,7 +38,7 @@ export default function ProjectBookingSystem() {
       <Block title="Screens">
         <div className="space-y-4">
           {screenshots.map((shot) => (
-            <ScreenshotFrame key={shot.src} src={shot.src} alt={shot.alt} />
+            <ScreenshotFrame key={shot.src} src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} />
           ))}
         </div>
       </Block>

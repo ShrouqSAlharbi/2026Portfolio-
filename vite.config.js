@@ -7,5 +7,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
     target: 'es2020',
+    // ParticleField (three.js/r3f/drei) is intentionally large — it's dynamically
+    // imported and only fetched on desktop viewports with motion enabled.
+    chunkSizeWarningLimit: 900,
   },
 })

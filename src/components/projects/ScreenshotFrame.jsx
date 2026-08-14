@@ -1,4 +1,4 @@
-export default function ScreenshotFrame({ src, alt, url }) {
+export default function ScreenshotFrame({ src, alt, url, width, height }) {
   return (
     <div className="glass-panel overflow-hidden rounded-2xl shadow-2xl shadow-black/40">
       <div className="flex items-center gap-2 border-b border-white/10 bg-white/[0.02] px-4 py-3">
@@ -11,7 +11,15 @@ export default function ScreenshotFrame({ src, alt, url }) {
           </div>
         )}
       </div>
-      <img src={src} alt={alt} loading="lazy" className="w-full" />
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        width={width}
+        height={height}
+        className="w-full"
+      />
     </div>
   )
 }

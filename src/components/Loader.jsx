@@ -7,7 +7,7 @@ export default function Loader({ onDone }) {
   const reducedMotion = usePrefersReducedMotion()
 
   useEffect(() => {
-    const delay = reducedMotion ? 0 : 1400
+    const delay = reducedMotion ? 0 : 500
     const timer = setTimeout(() => setVisible(false), delay)
     return () => clearTimeout(timer)
   }, [reducedMotion])
