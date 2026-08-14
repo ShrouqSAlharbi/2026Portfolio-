@@ -1,12 +1,13 @@
 import { useEffect, useRef } from 'react'
-import { usePrefersReducedMotion } from '../../hooks/useMediaQuery.js'
+import { useMediaQuery, usePrefersReducedMotion } from '../../hooks/useMediaQuery.js'
 
 export default function TimelineSpine({ containerRef }) {
   const lineRef = useRef(null)
   const reducedMotion = usePrefersReducedMotion()
+  const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 
   useEffect(() => {
-    if (!containerRef.current || !lineRef.current || reducedMotion) return
+    if (!containerRef.current || !lineRef.current || reducedMotion || !isLargeScreen) return
 
     let ctx
     let cancelled = false
@@ -38,7 +39,7 @@ export default function TimelineSpine({ containerRef }) {
       cancelled = true
       ctx?.revert()
     }
-  }, [containerRef, reducedMotion])
+  }, [containerRef, reducedMotion, isLargeScreen])
 
   return (
     <div className="pointer-events-none absolute left-1/2 top-0 -z-10 hidden h-full w-px -translate-x-1/2 bg-white/10 lg:block">
