@@ -11,7 +11,7 @@ export function useActiveSection(ids) {
           .sort((a, b) => b.intersectionRect.height - a.intersectionRect.height)
         if (visible[0]) setActive(visible[0].target.id)
       },
-      { rootMargin: '-40% 0px -50% 0px', threshold: [0.1, 0.25, 0.5, 0.75] }
+      { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
     )
 
     ids.forEach((id) => {
