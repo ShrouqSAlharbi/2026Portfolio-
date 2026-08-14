@@ -8,7 +8,7 @@ export function useActiveSection(ids) {
       (entries) => {
         const visible = entries
           .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+          .sort((a, b) => b.intersectionRect.height - a.intersectionRect.height)
         if (visible[0]) setActive(visible[0].target.id)
       },
       { rootMargin: '-40% 0px -50% 0px', threshold: [0.1, 0.25, 0.5, 0.75] }
